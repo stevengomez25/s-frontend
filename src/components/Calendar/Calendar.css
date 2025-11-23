@@ -1,0 +1,190 @@
+/* Variables de color */
+:root {
+    --primary-color: #0241ff; /* Azul vibrante */
+    --secondary-color: #0F084B; /* Fondo de contenedores secundarios/información */
+    --text-color: #A6CFD5; /* Texto principal (Gris/Azul claro) */
+    --border-color: #26408B; /* Borde y línea de separación */
+    --current-day-color: #1b246b; /* Fondo del día actual */
+    --selected-day-bg: #26408B; /* Fondo de selección */
+    --appointment-dot-color: #dc3545; /* Rojo para cita */
+    /* Color de fondo oscuro principal */
+    --main-bg: #0C021E; 
+}
+
+/* Estilos para el contenedor principal */
+.calendar-container {
+    /* Hacemos el ancho adaptable pero con un máximo */
+    width: 95%; 
+    max-width: 450px;
+    background-color: var(--main-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más intensa para dark mode */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 30px auto;
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    border: 1px solid var(--border-color); /* Borde sutil para definir el contenedor */
+}
+
+/* --- Cabecera del Calendario (Mes y Navegación) --- */
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#current-month-year {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--primary-color);
+    /* Ajuste responsivo del tamaño de fuente */
+    font-size: clamp(1.2em, 4vw, 1.5em); 
+}
+
+.calendar-header button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.2s;
+    /* Ajuste para que los botones sean un poco más pequeños en móvil */
+    padding: 6px 10px;
+    font-size: 1em;
+}
+
+.calendar-header button:hover {
+    background-color: var(--selected-day-bg);
+}
+
+/* --- Cuadrícula de Días --- */
+
+.calendar-grid {
+    display: grid;
+    /* 7 columnas de igual ancho, esto es inherentemente responsivo */
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 4px; /* Un poco menos de espacio para móvil */
+    text-align: center;
+}
+
+.day-name {
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 8px 0;
+    font-size: 0.85em; /* Un poco más pequeño */
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* --- Celdas de Fechas --- */
+
+.date-cell {
+    position: relative;
+    padding: 0; /* Quitamos el padding aquí */
+    aspect-ratio: 1 / 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border-radius: 10%; 
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 0.9em; /* Ajuste para móvil */
+}
+
+/* Estado por defecto para las que se pueden seleccionar */
+.date-cell.selectable {
+    cursor: pointer;
+}
+
+.date-cell.selectable:hover {
+    background-color: var(--border-color);
+    border-radius: 10%;
+}
+
+/* Días del mes pasado/siguiente */
+.date-cell.past, 
+.date-cell.next-month {
+    color: #bebebe; 
+    opacity: 0.4; /* Bajamos un poco la opacidad */
+    pointer-events: none; 
+    background: none;
+    cursor: default;
+}
+
+/* Día actual (hoy) */
+.date-cell.current-day {
+    background-color: var(--current-day-color);
+    color: white;
+    font-weight: bold;
+    border: 2px solid var(--primary-color); /* Borde sutil para resaltarlo más */
+}
+
+/* Día seleccionado por el usuario */
+.date-cell.selected {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 10%;
+}
+
+.date-cell.selected:hover {
+    background-color: var(--selected-day-bg);
+}
+
+/* Indicador visual de que ya tiene una cita agendada */
+.date-cell.has-appointment::after {
+    content: '';
+    position: absolute;
+    bottom: 3px; /* Bajamos un poco el punto */
+    width: 5px;
+    height: 5px;
+    background-color: var(--appointment-dot-color);
+    border-radius: 50%;
+}
+
+/* Estilo para mostrar la fecha seleccionada debajo del calendario */
+.selection-info {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95em;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+/* ========================================= */
+/* --- MEDIA QUERY para RESPONSIVIDAD --- */
+/* ========================================= */
+
+@media (max-width: 400px) {
+    /* Para pantallas muy pequeñas (ancho típico de móvil) */
+    
+    .calendar-container {
+        padding: 15px;
+    }
+
+    .calendar-grid {
+        /* Aumentamos ligeramente la separación para evitar que se peguen las celdas */
+        gap: 3px; 
+    }
+    
+    .day-name {
+        font-size: 0.8em;
+        padding: 6px 0;
+    }
+    
+    .date-cell {
+        font-size: 0.8em; 
+    }
+    
+    /* Aseguramos que los botones de navegación no ocupen demasiado */
+    .calendar-header button {
+        padding: 4px 8px;
+        font-size: 0.9em;
+    }
+}

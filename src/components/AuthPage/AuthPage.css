@@ -1,0 +1,92 @@
+/* Variables de color de App.css asumidas:
+--primary-color: #007bff (ej. azul)
+--secondary-color: #f8f9fa (ej. gris claro)
+--main-bg: #212529 (ej. gris oscuro)
+--text-color: white
+*/
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    /* Ajuste para que ocupe todo el espacio disponible en la sección main */
+    min-height: 70vh;
+}
+
+.auth-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.auth-form {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form label {
+    font-weight: 600;
+    color: #ffffff; /* Texto oscuro para contrastar con el fondo claro del formulario */
+}
+
+.auth-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.login-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.login-button:hover {
+    background-color: #0056b3; /* Un tono más oscuro */
+    transform: translateY(-1px);
+}
+
+.error-message {
+    color: #dc3545; /* Rojo de error */
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.auth-note {
+    margin-top: 20px;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9em;
+}
+
+/* Adaptación para pantallas más pequeñas (Responsive) */
+@media (max-width: 600px) {
+    .auth-form {
+        padding: 20px;
+        box-shadow: none; /* Menos distracción en móvil */
+        border: none;
+    }
+}
