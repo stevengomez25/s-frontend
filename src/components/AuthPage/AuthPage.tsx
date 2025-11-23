@@ -46,7 +46,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLogin }) => {
                     Acceder
                 </button>
             </form>
-            <p className="auth-note">¡Bienvenido! Usa 'trainer' para ingresar.</p>
+            <p className="auth-note">¡Bienvenido! Usa tu clave única para ingresar.</p>
         </div>
     );
 };

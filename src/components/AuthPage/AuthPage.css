@@ -77,7 +77,7 @@
 
 .auth-note {
     margin-top: 20px;
-    color: var(--text-color);
+    color: var(--primary-color);
     opacity: 0.7;
     font-size: 0.9em;
 }
