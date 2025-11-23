@@ -1,0 +1,15 @@
+# netlify.toml - Configuración de despliegue para el Frontend
+
+[build]
+  # Comando que ejecuta Netlify para compilar tu app React (Vite)
+  command = "npm run build"
+  # Carpeta donde Vite pone el resultado de la compilación
+  publish = "dist" 
+
+# Reglas de redirección (El fix del 404)
+# Esta sección le dice a Netlify: "Si no encuentras el archivo solicitado, 
+# sirve /index.html en su lugar (código 200 OK)."
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
