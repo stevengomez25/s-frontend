@@ -46,7 +46,7 @@
 .appointment-list {
     display: grid;
     /* En móviles, 1 columna. En tablet/escritorio, 2 o 3 columnas. */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50dvw, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -100,6 +100,11 @@
     color: white;
 }
 
+.pending-container:hover{
+    background-color: rgb(255, 136, 0);
+    cursor: pointer;
+}
+
 .pending-container .text-hover {
   display: none; /* Oculta el texto de hover por defecto */
 }
@@ -110,6 +115,7 @@
 
 .pending-container:hover .text-hover {
   display: inline; /* Muestra el texto de hover al hacer hover */
+  
 }
 
 .cancel-btn {
