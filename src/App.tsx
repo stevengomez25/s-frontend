@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 // Importamos las páginas específicas:
 import CalendarPage from './components/CalendarPage/CalendarPage'; 
 import AuthPage from './components/AuthPage/AuthPage';
@@ -22,16 +22,16 @@ const App: React.FC = () => {
                     <h1>¡Agenda tu Entrenamiento!</h1>
                     <nav className="main-nav">
                         {/* Usamos <a> para recargar la página si es necesario, o Link de react-router-dom */}
-                        <a href="/">Agendar Cita</a> | 
+                        <Link to="/">Agendar Cita</Link> | 
                         {isAuthenticated ? (
                             <>
-                                <a href="/dashboard">Dashboard</a> | 
+                                <Link to="/dashboard">Dashboard</Link> | 
                                 <button onClick={handleLogout} className="logout-btn">
                                     Salir
                                 </button>
                             </>
                         ) : (
-                            <a href="/login">Acceso Entrenador</a>
+                            <Link to="/login">Acceso Entrenador</Link>
                         )}
                     </nav>
                 </header>
