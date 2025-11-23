@@ -35,8 +35,8 @@
 .no-appointments {
     text-align: center;
     padding: 40px;
-    background-color: #28a74520; /* Fondo verde muy suave */
-    border: 1px solid #28a745;
+    background-color: var(--primary-color); /* Fondo verde muy suave */
+    border: 1px solid var(--secondary-color);
     border-radius: 10px;
     margin-top: 40px;
     font-size: 1.2em;

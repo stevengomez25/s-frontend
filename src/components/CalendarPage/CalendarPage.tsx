@@ -84,7 +84,7 @@ const CalendarPage: React.FC = () => {
         timeSlot: selectedSlotForBooking,
         clientName: data.name, // Datos del modal
         clientEmail: data.email, // Datos del modal
-        duration: 30,
+        duration: 60,
       })
       .then((response) => {
         alert(
