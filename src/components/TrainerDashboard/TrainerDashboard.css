@@ -100,10 +100,16 @@
     color: white;
 }
 
-.status.status.pending:hover::after{
-    content: "Confirmar?";
-    background-color: yellow;
-    cursor: pointer;
+.pending-container .text-hover {
+  display: none; /* Oculta el texto de hover por defecto */
+}
+
+.pending-container:hover .text-original {
+  display: none; /* Oculta el texto original al hacer hover */
+}
+
+.pending-container:hover .text-hover {
+  display: inline; /* Muestra el texto de hover al hacer hover */
 }
 
 .cancel-btn {

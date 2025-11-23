@@ -118,10 +118,11 @@ const TrainerDashboard: React.FC = () => {
               </div>
               <div className="card-actions">
                 <button
-                  className={`status ${app.status}`}
+                  className={`status ${app.status} pending-container`}
                   onClick={() => handleConfirm(app._id)}
                 >
-                  {app.status.toUpperCase()}
+                    <span className="text-original">{app.status.toUpperCase()}</span>
+                    <span className="text-hover">¿Confirmar?</span>
                 </button>
                 <button
                   className="cancel-btn"
